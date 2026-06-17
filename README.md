@@ -48,7 +48,7 @@ The 12V supply was also a deliberate derating choice for a 24V motor. It reduced
 ## Technical Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
     Host["PC Host / Assetto Corsa"] -->|"HID input polling and DirectInput-style FFB reports"| USB["STM32 USB Custom HID"]
     USB --> Parser["HID PID subset parser"]
     Parser --> Mixer["Effect accumulation"]
@@ -59,7 +59,7 @@ flowchart LR
     Belt --> Wheel["Steering shaft and wheel assembly"]
     Wheel --> Encoder["LPD3806 quadrature encoder"]
     Encoder -->|"position counts"| Angle["Configurable wheel angle mapping"]
-    Angle --> USB
+    Angle -->|"wheel input report"| USB
 ```
 
 The device exposed wheel input reports and handled a subset of HID PID / DirectInput-style force-feedback reports. Active effects were combined into a bounded torque command, then passed through a local safety layer before being mapped to MD20A PWM duty cycle and direction output.
