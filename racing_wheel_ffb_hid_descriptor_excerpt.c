@@ -1,9 +1,4 @@
 ﻿/*
- * 文件功能：保存 Racing Wheel FFB Controller case study 的 HID report descriptor 通信定义摘录。
- * File purpose: Stores a HID report descriptor communication-definition excerpt for the Racing Wheel FFB Controller case study.
- *
- * 注意：这不是完整固件源文件。它省略了 USB stack 集成、descriptor length constants、
- * endpoint callbacks、report parser code，以及 exposed feature reports 所需的
  * GET_REPORT / SET_REPORT handlers。
  *
  * Note: This is not a complete firmware source file. It omits USB stack integration,
@@ -13,7 +8,6 @@
 
 #include <stdint.h>
 
-// Complete prototype HID report descriptor for the wheel/FFB communication subset.
 // Report ID map:
 //   0x01: Wheel input report
 //   0x02: PID state input report

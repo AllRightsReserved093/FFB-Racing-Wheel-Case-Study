@@ -118,11 +118,9 @@ Mechanical design areas included:
 
 ## Prototype Images
 
-The available images are from CAD, prototype fabrication, and assembly stages.
-
 ![CAD rendering of the racing wheel force-feedback prototype](assets/racing_wheel_ffb_cad_overview.png)
 
-The CAD screenshot shows the motor, steering shaft, bearing supports, belt drive, hub, and frame layout of the force-feedback wheel mechanism.
+The CAD screenshots that shows the motor, steering shaft, bearing bracket, belt drive, belt tensioning structure, and frame layout of the force feedback steering wheel mechanism.
 
 ![Custom rotary conductive slip ring prototype](assets/racing_wheel_rotary_slip_ring_prototype.jpeg)
 
@@ -130,7 +128,7 @@ The rotary conductive slip ring carries steering-wheel button data to the MCU th
 
 ![Unpowered bench assembly of the racing wheel prototype](assets/racing_wheel_bench_assembly_unpowered.jpg)
 
-The bench assembly photo shows the motor, steering shaft, printed mounts, wheel rim, and STM32 test setup before final electrical connection.
+The bench assembly photo shows the motor, steering shaft, printed mounts, wheel rim, and STM32 test setup before final electrical connection. The steering wheel is a used golf cart steering wheel that I bought on eBay.
 
 ## Debugging and Validation
 
@@ -146,17 +144,18 @@ Validation focused on HID enumeration, host-side FFB traffic, and game-driven mo
 
 The project produced a hardware-software prototype path for a custom force-feedback racing wheel: STM32 firmware, USB HID descriptor work, HID PID / DirectInput FFB subset handling, encoder-based steering feedback, PWM motor-drive control, and CAD-designed 3D-printed mechanical components.
 
-The main value of the project was the end-to-end integration work. It required thinking across embedded firmware, USB device protocols, host compatibility, motor control, power derating, mechanical design, and physical debugging instead of treating each layer as an isolated exercise.
+Although the prototype did not end up cheaper than some commercial wheels after repeated iterations, the project was still valuable as an end-to-end engineering exercise. It forced me to consider embedded firmware, USB device protocols, host compatibility, motor control, power derating, mechanical design, and physical debugging as one connected system, and it became one of the most engaging engineering projects I have worked on.
 
 ## What I Would Improve Next
 
 If I rebuilt the project, I would make the following changes first:
 
-- Put firmware, CubeMX configuration, HID descriptor revisions, CAD exports, and slicer files under version control from the beginning.
-- Use STM32 hardware timer encoder mode or interrupt-driven decoding instead of GPIO polling for steering position.
-- Run the control loop at a fixed rate, separate from USB report transmission.
-- Define C structs and tests for HID report packing so descriptor changes cannot silently break firmware buffers.
-- Separate the HID force-effect parser, control policy, and low-level motor driver.
-- Add a hardware emergency stop or motor-enable gate for safer testing.
-- Keep CAD source files, print exports, and mechanical revisions organized by assembly version.
+## Areas for Improvement
+
+This project is from about three years ago. If I were to rebuild it today, I would make the following improvements based on my experience:
+- Incorporate firmware, CubeMX configuration, HID descriptor revisions, CAD exports, and slicer files into version control from the beginning.
+- Organize the firmware structure more clearly, separating the HID force-effect parser, control policy, and low-level motor driver.
+- Replace the brushed DC motor and synchronous belt deceleration structure with direct-drive force feedback actuators, such as servo motor-based drive systems, to reduce transmission flexibility and improve responsiveness.
+- Redesign the framework using aluminum profiles and standard industrial parts to reduce the proportion of custom 3D-printed parts in the structural components.
+- Add a hardware emergency stop or motor-enable gate to improve testing safety.
 
