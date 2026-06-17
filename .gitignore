@@ -1,0 +1,8 @@
+﻿# Local-only notes
+_internal/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
