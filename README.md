@@ -49,7 +49,7 @@ The 12V supply was also a deliberate derating choice for a 24V motor. It reduced
 
 ```mermaid
 flowchart TD
-    Host["PC Host / Assetto Corsa"] -->|"HID input polling and DirectInput-style FFB reports"| USB["STM32 USB Custom HID"]
+    Host["PC Host / Assetto Corsa"] <-->|"HID input reports / DirectInput-style FFB reports"| USB["STM32 USB Custom HID"]
     USB --> Parser["HID PID subset parser"]
     Parser --> Mixer["Effect accumulation"]
     Mixer --> Safety["Torque limits and PWM ramp"]
