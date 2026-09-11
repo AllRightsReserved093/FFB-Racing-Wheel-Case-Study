@@ -148,7 +148,7 @@ Although the prototype did not end up cheaper than some commercial wheels after 
 
 ## What I Would Improve Next
 
-This project is from about three years ago. If I were to rebuild it today, I would make the following improvements based on my experience:
+This project is from about a while ago ago. If I were to rebuild it today, I would make the following improvements based on my experience:
 - Incorporate firmware, CubeMX configuration, HID descriptor revisions, CAD exports, and slicer files into version control from the beginning.
 - Organize the firmware structure more clearly, separating the HID force-effect parser, control policy, and low-level motor driver.
 - Replace the brushed DC motor and synchronous belt deceleration structure with direct-drive force feedback actuators, such as servo motor-based drive systems, to reduce transmission flexibility and improve responsiveness.
